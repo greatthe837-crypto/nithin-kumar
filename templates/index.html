@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore wildlife bioacoustics and analyze nature recordings with AI sound classification.">
+  <title>Wildlife Acoustics | Listen to Nature</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="topline"></div>
+  <nav class="nav wrap">
+    <a class="brand" href="#home"><span class="brand-mark">W</span><span>WILDLIFE<span class="gold"> ACOUSTICS</span><small>FIELD RESEARCH PLATFORM</small></span></a>
+    <button class="menu-toggle" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <div class="nav-links">
+      <a href="#about">About</a><a href="#wildlife">Wildlife</a><a href="#technology">Technology</a><a href="#analyzer">AI Analyzer</a>
+      <a class="nav-cta" href="#analyzer">Analyze audio <span>↗</span></a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-image"></div><div class="hero-shade"></div>
+      <div class="hero-content wrap">
+        <p class="eyebrow"><span></span> NATURE, DECODED THROUGH SOUND</p>
+        <h1>Every sound tells<br> a <em>wild</em> story.</h1>
+        <p class="hero-copy">Discover the hidden language of forests. Explore wildlife acoustics and use machine learning to understand the sounds of the natural world.</p>
+        <div class="hero-actions"><a class="button button-gold" href="#analyzer">Explore sound analyzer <b>↗</b></a><a class="text-link" href="#about">Discover the project <span>↓</span></a></div>
+        <div class="hero-note"><span class="pulse"></span> LISTEN CLOSER. CONSERVE BETTER.</div>
+      </div>
+      <div class="hero-index">01 / 04</div>
+    </section>
+
+    <section class="intro section wrap" id="about">
+      <div class="section-label">01 — THE PROJECT</div>
+      <div class="intro-grid">
+        <div><p class="eyebrow dark">THE SCIENCE OF LISTENING</p><h2>Protecting nature<br>begins with <em>listening.</em></h2></div>
+        <div class="intro-text"><p>Wildlife acoustic monitoring uses audio recordings to study animals in their natural habitats. By analyzing calls, songs and environmental sounds, researchers can observe biodiversity while minimizing disturbance to wildlife.</p><p>This platform brings together wildlife education, acoustic research concepts and an AI-powered sound-event demonstration.</p></div>
+      </div>
+      <div class="stats">
+        <div><strong>24/7</strong><span>Potential passive monitoring</span></div>
+        <div><strong>AI</strong><span>Assisted sound classification</span></div>
+        <div><strong>Non-invasive</strong><span>Observe without direct contact</span></div>
+      </div>
+    </section>
+
+    <section class="wildlife-section section" id="wildlife">
+      <div class="wrap">
+        <div class="section-heading"><div><div class="section-label light">02 — SOUND OF THE WILD</div><h2>Meet the voices<br>of the <em>forest.</em></h2></div><p>From dawn choruses to nocturnal calls, acoustic signals offer clues about the species and ecosystems around us.</p></div>
+        <div class="wildlife-grid">
+          <article class="animal-card bird"><div class="animal-number">01</div><div><span>CANOPY & WETLANDS</span><h3>Bird calls</h3><p>Songs, alarms and contact calls can help reveal bird activity and habitat use.</p></div></article>
+          <article class="animal-card frog"><div class="animal-number">02</div><div><span>RAINFOREST & PONDS</span><h3>Amphibians</h3><p>Many frogs call to attract mates, with distinct patterns across species.</p></div></article>
+          <article class="animal-card insect"><div class="animal-number">03</div><div><span>GRASSLAND & FOREST</span><h3>Insects</h3><p>Crickets and other insects create rich acoustic patterns in an ecosystem.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="technology section wrap" id="technology">
+      <div class="section-label">03 — HOW IT WORKS</div>
+      <div class="tech-grid">
+        <div><p class="eyebrow dark">FROM AUDIO TO INSIGHT</p><h2>Turning sound<br>into <em>knowledge.</em></h2><p class="muted">A typical acoustic monitoring workflow transforms field recordings into useful signals for ecological research.</p></div>
+        <div class="steps">
+          <div class="step"><b>01</b><div><h3>Record</h3><p>Capture environmental audio using a field recorder or microphone.</p></div></div>
+          <div class="step"><b>02</b><div><h3>Prepare</h3><p>Clean, resample and segment audio for machine-learning analysis.</p></div></div>
+          <div class="step"><b>03</b><div><h3>Classify</h3><p>A trained model predicts likely sound-event categories.</p></div></div>
+          <div class="step"><b>04</b><div><h3>Interpret</h3><p>Review predictions with ecological knowledge and expert validation.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="analyzer-section section" id="analyzer">
+      <div class="wrap analyzer-wrap">
+        <div class="section-label light">04 — INTERACTIVE AI LAB</div>
+        <div class="analyzer-heading"><div><p class="eyebrow">LISTEN. UPLOAD. DISCOVER.</p><h2>Explore your<br>recording with <em>AI.</em></h2></div><p>Upload a short nature recording and the server will analyze it using the pretrained Google YAMNet sound-event model.</p></div>
+        <div class="upload-panel">
+          <div class="upload-icon">♫</div><h3>Drop an audio recording here</h3><p>or choose a file from your device</p>
+          <label class="button button-gold file-button" for="audioFile">Choose audio file</label>
+          <input id="audioFile" type="file" accept=".wav,.flac,.ogg,.aiff,.aif,audio/*">
+          <div class="file-meta" id="fileMeta">WAV, FLAC, OGG or AIFF · Up to 25 MB · Maximum 120 seconds</div>
+          <button class="button button-outline" id="analyzeBtn" disabled>Analyze recording <b>↗</b></button>
+          <div class="status" id="status" role="status"></div>
+          <div class="results" id="results" hidden></div>
+        </div>
+        <p class="disclaimer">Research note: predictions are sound-event estimates, not guaranteed species identification. Confirm important findings with expert review and validated field data.</p>
+      </div>
+    </section>
+
+    <section class="closing section wrap">
+      <div class="closing-mark">✳</div><p class="eyebrow dark">A QUIETER WAY TO SEE MORE</p><h2>Listen to the wild.<br><em>Help protect it.</em></h2><a href="#analyzer" class="button button-dark">Try the AI analyzer <b>↗</b></a>
+    </section>
+  </main>
+  <footer><div class="wrap footer-inner"><a class="brand" href="#home"><span class="brand-mark">W</span><span>WILDLIFE<span class="gold"> ACOUSTICS</span><small>LISTEN TO NATURE</small></span></a><p>Wildlife Acoustic Monitoring Using Sound Classification</p><span>© 2026 · Educational research project</span></div></footer>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
